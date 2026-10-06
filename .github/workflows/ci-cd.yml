@@ -14,9 +14,9 @@ jobs:
     container:
       image: python:2.7.18-buster
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3.7.0
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@7f4fc3e22c37d6ff65e88745f38bd3157c663f7c # v4.9.1
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
@@ -33,9 +33,9 @@ jobs:
       matrix:
         python-version: ['3.7', '3.8', '3.9', '3.10', '3.11', '3.12']
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3.7.0
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@7f4fc3e22c37d6ff65e88745f38bd3157c663f7c # v4.9.1
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
@@ -52,9 +52,9 @@ jobs:
       matrix:
         python-version: ['3.11']
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3.7.0
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@7f4fc3e22c37d6ff65e88745f38bd3157c663f7c # v4.9.1
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
@@ -73,12 +73,12 @@ jobs:
     needs: [Test]
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3.7.0
       with:
         fetch-depth: 0
         persist-credentials: false
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@7f4fc3e22c37d6ff65e88745f38bd3157c663f7c # v4.9.1
       with:
         python-version: "3.10"
     - name: Install dependencies
@@ -106,7 +106,7 @@ jobs:
         python -m venv wheel_env
         ./wheel_env/bin/pip install dist/cert_chain_resolver-*.whl
     - name: Publish package to PyPI
-      uses: pypa/gh-action-pypi-publish@release/v1
+      uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # v1.14.2
       with:
         user: __token__
         password: ${{ secrets.PYPI_ACCESS_TOKEN }}
